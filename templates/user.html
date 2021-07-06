@@ -1,0 +1,22 @@
+{% extends 'navbar1.html' %}
+
+{% block content %}
+<br/>
+<form action=# method="post">
+<div class=box>
+    
+<br/>
+<div align="center" style="padding: 10px;"><img src="{{url_for('static', filename='profile.png')}}"  height="120" width="120" /> </div> 
+    <br/>
+
+	<h1  align="center">Hello {{user.username}}</h1>
+    <br/>
+    <p align="center"> Email: {{user.email}} &#160;&#160;&#160;&#160;<button  type="submit" name="editemail" value="editemail">EDIT</button></p>
+    <p align="center"> Binance Spot public key: ************&#160;&#160;&#160;&#160;<button  type="submit" name="editbspk"  value="editbspk">EDIT</button></p>
+    <p align="center"> Binance Spot Secret key: ************&#160;&#160;&#160;&#160;<button  type="submit" name="editbssk"  value="editbspk">EDIT</button></p>
+    <p align="center"> Binance TestNet Spot public key: ************&#160;&#160;&#160;&#160;<button  type="submit" name="editbstpk"  value="editbspk">EDIT</button></p>
+    <p align="center"> Binance TestNet Spot Secret key: ************&#160;&#160;&#160;&#160;<button  type="submit" name="editbstsk"  value="editbspk">EDIT</button></p>
+    
+</div>
+</form>
+{% endblock %}

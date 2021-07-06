@@ -1,0 +1,17 @@
+{% extends 'navbar1.html' %}
+
+{% block content %}
+<div class=box>
+   <form action=# method="post"> 
+<br/>
+<div align="center" style="padding: 10px;"><img src="{{url_for('static', filename='profile.png')}}"  height="120" width="120" /> </div> 
+    <br/>
+
+	<h1  align="center">Hello {{user.username}}</h1>
+    <br/>
+    <p align="center"> Email: {{user.email}} &#160;&#160;&#160;&#160;</p>
+    <p align="center"> Enter New Email: <input type="email" name=email placeholder="email" size="25"></p>
+    <p align="center"> <button  type="submit" name="edit" value="edit">Submit</button></p>
+</form>
+</div>
+{%endblock%}

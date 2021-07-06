@@ -1,0 +1,257 @@
+{% extends 'navbar.html' %}		
+<div class="container1">
+ <div id="st-box">
+    <div>
+    <div align='center'>
+    
+<form action=# method="post">
+<input type="text" id="symbol" name="symbol" placeholder="Symbol Name">
+<button type="submit" name="submit_a" value="submit_a">ADD</button>
+    </div>
+        <hr>
+  	
+
+<table align="left" width=100%>
+
+{%for symbol in list1%}
+	<tr>
+	<td>
+  
+  
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "BINANCE:BTCUSDT",
+  "autosize":true,
+  "locale": "in",
+  "dateRange": "12M",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(41, 98, 255, 1)",
+  "underLineColor": "rgba(41, 98, 255, 0.3)",
+  "underLineBottomColor": "rgba(41, 98, 255, 0)",
+  "isTransparent": true,
+  "autosize": false,
+  "largeChartUrl": ""
+}
+  </script>
+</td>
+	</tr>
+{% endfor %}
+  
+
+</table>
+        </div>
+</div>
+          
+   <div id="bnd-box" ></div>
+     
+     
+   <div id="and-box" >  
+       <div align="center">
+           <button type="submit" name="submit_b" value="submit_b" style="height:50px; width:150px" >ADD STRATEGY</button></div>
+       
+    <table style="width:100%" id="geeks" align="right"  >
+            <tr>
+                <th align="center">Strategy</th>
+                <th align="center">Symbol</th>
+                <th align="center">TimeFrame</th>
+                <th align="center">Balance</th>
+                <th align="center">Trade Units</th>
+                <th align="center">RSI Period</th>
+                <th align="center">RSI Overbought</th>
+                <th align="center">RSI Oversold</th>
+                <th align="center">Trade Units</th>
+                <th align="center">Take Profit %</th>
+                <th align="center">Stop Loss %</th>
+                <th align="center">Activate</th>
+                <th align="center">Remove</th>
+                
+            </tr>
+        
+        <tr>
+            <td ><select>
+                
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+            <td ><select>
+                
+                <option>BNBBUSD</option>
+                
+                <option>BTCBUSD</option>
+                
+                <option>ETHBUSD</option>
+                
+                <option>LTCBUSD</option>
+                
+                <option>TRXBUSD</option>
+                
+                <option>XRPBUSD</option>
+                
+                <option>BNBUSDT</option>
+                
+                <option>BTCUSDT</option>
+                
+                <option>ETHUSDT</option>
+                
+                <option>LTCUSDT</option>
+                
+                <option>TRXUSDT</option>
+                
+                <option>XRPUSDT</option>
+                
+                <option>BNBBTC</option>
+                
+                <option>ETHBTC</option>
+                
+                <option>LTCBTC</option>
+                
+                <option>TRXBTC</option>
+                
+                <option>XRPBTC</option>
+                
+                <option>LTCBNB</option>
+                
+                <option>TRXBNB</option>
+                
+                <option>XRPBNB</option>
+                
+                </select></td>
+            <td align="center"><select>
+                
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+            
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center" ><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5" /></td>
+            <td align="center"><label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label></td>
+            <td align="center"><button type="submit" name="submit_c" value="submit_c">X</button></td>
+        </tr>
+        
+        <tr>
+            <td ><select>
+                
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+            <td ><select>
+                
+                <option>BNBBUSD</option>
+                
+                <option>BTCBUSD</option>
+                
+                <option>ETHBUSD</option>
+                
+                <option>LTCBUSD</option>
+                
+                <option>TRXBUSD</option>
+                
+                <option>XRPBUSD</option>
+                
+                <option>BNBUSDT</option>
+                
+                <option>BTCUSDT</option>
+                
+                <option>ETHUSDT</option>
+                
+                <option>LTCUSDT</option>
+                
+                <option>TRXUSDT</option>
+                
+                <option>XRPUSDT</option>
+                
+                <option>BNBBTC</option>
+                
+                <option>ETHBTC</option>
+                
+                <option>LTCBTC</option>
+                
+                <option>TRXBTC</option>
+                
+                <option>XRPBTC</option>
+                
+                <option>LTCBNB</option>
+                
+                <option>TRXBNB</option>
+                
+                <option>XRPBNB</option>
+                
+                </select></td>
+            <td align="center"><select>
+                
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+            
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center" ><input type = "text" name = "Field1_name" size="5"/></td>
+            <td align="center"><input type = "text" name = "Field1_name" size="5" /></td>
+            <td align="center"><label class="switch">
+  <input type="checkbox">
+  <span class="slider"></span>
+</label></td>
+            <td align="center"><button type="submit" name="submit_c" value="submit_c">X</button></td>
+        </tr>
+        
+        </table>
+     </div>
+    </div>
+    <div id="dnd-box" ></div>

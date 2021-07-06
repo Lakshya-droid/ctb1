@@ -1,0 +1,989 @@
+{% extends 'navbar1.html' %}
+{% block content %}
+{% if user.binpk!=None%}
+<form method ="post" action="#">
+ <div class="container1">
+ <div id="st-box">
+    <div>
+    <div align="center">
+     
+<select name="syms" id="syms">
+                 {% for symbol in symbols%}
+                {% if sym==""%}
+                 <option value = {{symbol}}>{{symbol}}</option>
+                {%else%}
+                {%if symbol==sym%}
+        <option value = {{symbol}} selected>{{symbol}}</option>
+        {%else%}
+        <option value = {{symbol}}>{{symbol}}</option>
+        {%endif%}
+                {%endif%}
+                 {% endfor %}
+        </select>
+       
+<button type="submit" name="submit_a" value="submit_a">ADD</button>
+    </div>
+        
+  	
+
+<table align="left" width=100%>
+
+{% for our_user in list1 %}
+	<tr>
+	<td>
+  <div class="tradingview-widget-container__widget"></div>
+  
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+  {
+  "symbol": "BINANCE:{{our_user}}",
+  "autosize":true,
+  "locale": "in",
+  "dateRange": "12M",
+  "colorTheme": "light",
+  "trendLineColor": "rgba(41, 98, 255, 1)",
+  "underLineColor": "rgba(41, 98, 255, 0.3)",
+  "underLineBottomColor": "rgba(41, 98, 255, 0)",
+  "isTransparent": true,
+  "autosize": true,
+  "largeChartUrl": ""
+}
+  </script>
+</td>
+	</tr>
+{% endfor %}
+<tr>
+    <td align="center"><button type="submit" name="submit_b" value="submit_b">remove</button></td>
+    </tr>
+</table>
+        </div>
+</div>
+     <div id="and-box">
+   <div align="center">
+       
+    <table style="width:98%"  id="geeks" align="right" >
+            <tr>
+                <th align="center">Strategy</th>
+                <th align="center">Symbol</th>
+                <th align="center">TimeFrame</th>
+                <th align="center">Trade-Time</th>
+                <th align="center">Quantity</th>
+                <th align="center">Trade Units</th>
+                <th align="center">RSI Period</th>
+                <th align="center">RSI Overbought</th>
+                <th align="center">RSI Oversold</th>
+                <th align="center">Activate</th>
+                
+            </tr>
+            {%if a0==1%}
+            <tr>
+            <td ><select name = "0f1" id= "0f1" disabled>
+                {%if st0%}
+                <option selected>{{st0["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "0f2" id= "0f2" disabled >
+                {%if st0%}
+                <option selected>{{st0["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "0f8" id= "0f8" disabled>
+                {%if st0%}
+                <option selected>{{st0["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center" ><select name = "0f9" id= "0f9" disabled>
+                {%if st0%}
+                <option selected>{{st0["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+            <td align="left"><input type = "text" name = "0f3" id= "0f3" size="5" value="{{st0["quantity"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "0f4" id= "0f4" size="5" value="{{st0["tradeunits"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "0f5" id= "0f5" size="5" value="{{st0["rsiperiod"]}}" disabled/></td>
+            <td align="left" ><input type = "text" name = "0f6" id= "0f6" size="5"  value="{{st0["rsiob"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "0f7" id= "0f7" size="5"  value="{{st0["rsios"]}}" disabled></td>
+                <td><button type="submit" name="act0" value="act0">ON</button></td></tr>
+    
+            {% else%}
+            <tr>
+            <td ><select name = "0f1" id= "0f1">
+                {%if st0%}
+                <option selected>{{st0["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "0f2" id= "0f2">
+                 {%if st0%}
+                <option selected>{{st0["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "0f8" id= "0f8">
+                {%if st0%}
+                <option selected>{{st0["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center" ><select name = "0f9" id= "0f9">
+                {%if st0%}
+                <option selected>{{st0["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                {%if st0%}
+            <td align="left"><input type = "text" name = "0f3" id= "0f3" size="5" value="{{st0["quantity"]}}" /></td>
+            <td align="left"><input type = "text" name = "0f4" id= "0f4" size="5" value="{{st0["tradeunits"]}}"/></td>
+            <td align="left"><input type = "text" name = "0f5" id= "0f5" size="5" value="{{st0["rsiperiod"]}}"/></td>
+            <td align="left" ><input type = "text" name = "0f6" id= "0f6" size="5" value="{{st0["rsiob"]}}" /></td>
+            <td align="left"><input type = "text" name = "0f7" id= "0f7" size="5"  value="{{st0["rsios"]}}" /></td>
+                {%else%}
+            <td align="left"><input type = "text" name = "0f3" id= "0f3" size="5"  /></td>
+            <td align="left"><input type = "text" name = "0f4" id= "0f4" size="5" /></td>
+            <td align="left"><input type = "text" name = "0f5" id= "0f5" size="5" /></td>
+            <td align="left" ><input type = "text" name = "0f6" id= "0f6" size="5"  /></td>
+            <td align="left"><input type = "text" name = "0f7" id= "0f7" size="5"   /></td>
+                {%endif%}
+            <td><button type="submit" name="act00" value="act00">OFF</button></td></tr>
+            {%endif%}
+        
+        {%if a1==1%}
+            <tr>
+            <td ><select name = "1f1" id= "1f1" disabled>
+                {%if st1%}
+                <option selected>{{st1["strategy"]}}</option>
+                {%endif%}
+                
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "1f2" id= "1f2" disabled>
+                 {%if st1%}
+                <option selected>{{st1["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "1f8" id= "1f8" disabled>
+                {%if st1%}
+                <option selected>{{st1["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center" ><select name = "1f9" id= "1f9" disabled>
+                {%if st1%}
+                <option selected>{{st1["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+            <td align="left"><input type = "text" name = "1f3" id= "1f3" size="5" value="{{st1["quantity"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "1f4" id= "1f4" size="5" value="{{st1["tradeunits"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "1f5" id= "1f5" size="5" value="{{st1["rsiperiod"]}}" disabled/></td>
+            <td align="left" ><input type = "text" name = "1f6" id= "1f6" size="5" value="{{st1["rsiob"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "1f7" id= "1f7" size="5"   value="{{st1["rsios"]}}" disabled/></td>
+                <td><button type="submit" name="act1" value="act1">ON</button></td></tr>
+            {% else%}
+            <tr>
+            <td ><select name = "1f1" id= "1f1">
+                {%if st1%}
+                <option>{{st1["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "1f2" id= "1f2">
+                 {%if st1%}
+                <option selected>{{st1["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "1f8" id= "1f8">
+                {%if st1%}
+                <option>{{st1["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center" ><select name = "1f9" id= "1f9" >
+                {%if st1%}
+                <option selected>{{st1["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                {%if st1%}
+         <td align="left"><input type = "text" name = "1f3" id= "1f3" size="5" value="{{st1["quantity"]}}"/></td>
+            <td align="left"><input type = "text" name = "1f4" id= "1f4" size="5"  value="{{st1["tradeunits"]}}"/></td>
+            <td align="left"><input type = "text" name = "1f5" id= "1f5" size="5" value="{{st1["rsiperiod"]}}" /></td>
+            <td align="left" ><input type = "text" name = "1f6" id= "1f6" size="5" value="{{st1["rsiob"]}}" /></td>
+            <td align="left"><input type = "text" name = "1f7" id= "1f7"  size="5" value="{{st1["rsios"]}}"/></td>
+            <td><button type="submit" name="act11" value="act11">OFF</button></td></tr>
+        {%else%}
+        <td align="left"><input type = "text" name = "1f3" id= "1f3" size="5" /></td>
+        <td align="left"><input type = "text" name = "1f4" id= "1f4" size="5"/></td>
+         <td align="left"><input type = "text" name = "1f5" id= "1f5" size="5"/></td>
+         <td align="left" ><input type = "text" name = "1f6" id= "1f6" size="5" /></td>
+        <td align="left"><input type = "text" name = "1f7" id= "1f7"  size="5" /></td>
+       <td><button type="submit" name="act11" value="act11">OFF</button></td></tr>
+        {%endif%}
+            {%endif%}
+        {%if a2==1%}
+            <tr>
+            <td ><select name = "2f1" id= "2f1" disabled>
+                {%if st2%}
+                <option>{{st2["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "2f2" id= "2f2" disabled>
+                 {%if st2%}
+                <option>{{st2["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "2f8" id= "2f8" disabled>
+                {%if st2%}
+                <option>{{st2["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center" ><select name = "2f9" id= "2f9" disabled>
+                {%if st2%}
+                <option>{{st2["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+            <td align="left"><input type = "text" name = "2f3" id= "2f3" size="5"value="{{st2["quantity"]}}"  disabled/></td>
+            <td align="left"><input type = "text" name = "2f4" id= "2f4" size="5" value="{{st2["tradeunits"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "2f5" id= "2f5" size="5"value="{{st2["rsiperiod"]}}" disabled/></td>
+            <td align="left" ><input type = "text" name = "2f6" id= "2f6" size="5" value="{{st2["rsiob"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "2f7" id= "2f7" size="5" value="{{st2["rsios"]}}" disabled/></td>
+                <td><button type="submit" name="act2" value="act2">ON</button></td></tr>
+            {% else%}
+            <tr>
+            <td ><select name = "2f1" id= "2f1">
+                {%if st2%}
+                <option>{{st2["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "2f2" id= "2f2">
+                 {%if st2%}
+                <option>{{st2["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center"><select name = "2f8" id= "2f8">
+                {%if st2%}
+                <option>{{st2["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center" ><select name = "2f9" id= "2f9" >
+                {%if st2%}
+                <option>{{st2["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                {%if st2%}
+            <td align="left"><input type = "text" name = "2f3" id= "2f3" size="5"value="{{st2["quantity"]}}"  /></td>
+            <td align="left"><input type = "text" name = "2f4" id= "2f4" size="5" value="{{st2["tradeunits"]}}" /></td>
+            <td align="left"><input type = "text" name = "2f5" id= "2f5" size="5"value="{{st2["rsiperiod"]}}" /></td>
+            <td align="left" ><input type = "text" name = "2f6" id= "2f6" size="5" value="{{st2["rsiob"]}}" /></td>
+            <td align="left"><input type = "text" name = "2f7" id= "2f7" size="5" value="{{st2["rsios"]}}" /></td>
+            <td><button type="submit" name="act22" value="act22">OFF</button></td></tr>
+       {%else%}
+       
+       <td align="left"><input type = "text" name = "2f3" id= "2f3" size="5"/></td>
+            <td align="left"><input type = "text" name = "2f4" id= "2f4" size="5"/></td>
+            <td align="left"><input type = "text" name = "2f5" id= "2f5" size="5"/></td>
+            <td align="left" ><input type = "text" name = "2f6" id= "2f6" size="5"/></td>
+            <td align="left"><input type = "text" name = "2f7" id= "2f7" size="5" /></td>
+            <td><button type="submit" name="act22" value="act22">OFF</button></td></tr>
+       {%endif%}
+            {%endif%}
+        {%if a3==1%}
+            <tr>
+            <td ><select name = "3f1" id= "3f1" disabled>
+                {%if st3%}
+                <option>{{st3["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "3f2" id= "3f2" disabled>
+                 {%if st3%}
+                <option>{{st3["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "3f8" id= "3f8" disabled>
+                {%if st3%}
+                <option>{{st3["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                 <td align="center" ><select name = "3f9" id= "3f9" disabled>
+                {%if st3%}
+                <option>{{st3["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+            <td align="left"><input type = "text" name = "3f3" id= "3f3" size="5" value="{{st3["quantity"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "3f4" id= "3f4" size="5" value="{{st3["tradeunits"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "3f5" id= "3f5" size="5" value="{{st3["rsiperiod"]}}" disabled/></td>
+            <td align="left" ><input type = "text" name = "3f6" id= "3f6" size="5" value="{{st3["rsiob"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "3f7" id= "3f7" size="5"  value="{{st3["rsios"]}}" disabled/></td>
+                <td><button type="submit" name="act3" value="act3">ON</button></td></tr>
+            {% else%}
+            <tr>
+            <td ><select name = "3f1" id= "3f1">
+                {%if st3%}
+                <option>{{st3["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "3f2" id= "3f2">
+                 {%if st3%}
+                <option>{{st3["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "3f8" id= "3f8">
+                {%if st3%}
+                <option>{{st3["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                 <td align="center" ><select name = "3f9" id= "3f9" >
+                {%if st3%}
+                <option>{{st3["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                {%if st3%}
+            <td align="left"><input type = "text" name = "3f3" id= "3f3" size="5" value="{{st3["quantity"]}}"/></td>
+            <td align="left"><input type = "text" name = "3f4" id= "3f4" size="5" value="{{st3["tradeunits"]}}"/></td>
+            <td align="left"><input type = "text" name = "3f5" id= "3f5" size="5" value="{{st3["rsiperiod"]}}"/></td>
+            <td align="left" ><input type = "text" name = "3f6" id= "3f6" size="5" value="{{st3["rsiob"]}}"/></td>
+            <td align="left"><input type = "text" name = "3f7" id= "3f7" size="5" value="{{st3["rsios"]}}"/></td>
+            <td><button type="submit" name="act33" value="act33">OFF</button></td></tr>
+         {%else%}
+         <td align="left"><input type = "text" name = "3f3" id= "3f3" size="5"/></td>
+            <td align="left"><input type = "text" name = "3f4" id= "3f4" size="5"/></td>
+            <td align="left"><input type = "text" name = "3f5" id= "3f5" size="5"/></td>
+            <td align="left" ><input type = "text" name = "3f6" id= "3f6" size="5"/></td>
+            <td align="left"><input type = "text" name = "3f7" id= "3f7" size="5" /></td>
+            <td><button type="submit" name="act33" value="act33">OFF</button></td></tr>
+         {%endif%}
+            {%endif%}
+        {%if a4==1%}
+            <tr>
+            <td ><select name = "4f1" id= "4f1" disabled>
+                {%if st4%}
+                <option>{{st4["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "4f2" id= "4f2" disabled>
+                 {%if st4%}
+                <option>{{st4["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center"><select  name = "4f8" id= "4f8" disabled>
+                {%if st4%}
+                <option>{{st4["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center"><select  name = "4f9" id= "4f9" disabled>
+                {%if st4%}
+                <option>{{st4["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+            <td align="left"><input type = "text" name = "4f3" id= "4f3" size="5" value="{{st4["quantity"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "4f4" id= "4f4" size="5" value="{{st4["tradeunits"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "4f5" id= "4f5" size="5" value="{{st4["rsiperiod"]}}" disabled/></td>
+            <td align="left" ><input type = "text" name = "4f6" id= "4f6" size="5" value="{{st4["rsiob"]}}" disabled/></td>
+            <td align="left"><input type = "text" name = "4f7" id= "4f7" size="5" value="{{st4["rsios"]}}" disabled/></td>
+                <td><button type="submit" name="act4" value="act4">ON</button></td></tr>
+            {% else%}
+            <tr>
+            <td ><select name = "4f1" id= "4f1">
+                {%if st4%}
+                <option>{{st4["strategy"]}}</option>
+                {%endif%}
+                <option>Strategy1</option>
+                
+                <option>strategy2</option>
+                
+                </select></td>
+             <td ><select name = "4f2" id= "4f2">
+                 {%if st4%}
+                <option>{{st4["symbol"]}}</option>
+                {%endif%}
+                 {%for symbol in symbols %}
+                 <option>{{symbol}}</option>
+                
+                 {%endfor%}
+                 
+                 </select>
+            </td>
+            <td align="center" ><select name = "4f8" id= "4f8">
+                {%if st4%}
+                <option>{{st4["timeframe"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                <td align="center"><select  name = "4f9" id= "4f9">
+                {%if st4%}
+                <option>{{st4["timeperiod"]}}</option>
+                {%endif%}
+                <option>1m</option>
+                
+                <option>3m</option>
+                
+                <option>5m</option>
+                
+                <option>15m</option>
+                
+                <option>30m</option>
+                
+                <option>1h</option>
+                
+                <option>2h</option>
+                
+                <option>4h</option>
+                
+                <option>6h</option>
+                
+                <option>8h</option>
+                
+                <option>12h</option>
+                
+                </select></td>
+                {%if st4%}
+            <td align="left"><input type = "text" name = "4f3" id= "4f3" value="{{st4["quantity"]}}" size="5"/></td>
+            <td align="left"><input type = "text" name = "4f4" id= "4f4" value="{{st4["tradeunits"]}}" size="5"/></td>
+            <td align="left"><input type = "text" name = "4f5" id= "4f5" value="{{st4["rsiperiod"]}}" size="5"/></td>
+            <td align="left" ><input type = "text" name = "4f6" id= "4f6" value="{{st4["rsiob"]}}"  size="5"/></td>
+            <td align="left"><input type = "text" name = "4f7" id= "4f7" value="{{st4["rsios"]}}" size="5" /></td>
+            <td><button type="submit" name="act44" value="act44">OFF</button></td></tr>
+     {%else%}
+     <td align="left"><input type = "text" name = "4f3" id= "4f3" size="5"/></td>
+            <td align="left"><input type = "text" name = "4f4" id= "4f4" size="5"/></td>
+            <td align="left"><input type = "text" name = "4f5" id= "4f5" size="5"/></td>
+            <td align="left" ><input type = "text" name = "4f6" id= "4f6" size="5"/></td>
+            <td align="left"><input type = "text" name = "4f7" id= "4f7" size="5" /></td>
+     <td><button type="submit" name="act44" value="act44">OFF</button></td></tr>
+     {%endif%}
+            {%endif%}
+    
+         </table>
+     </div>
+     
+</div>
+     
+</div>
+</form>
+{%else%}
+<div class=box>
+   <form action=# method="post"> 
+<br/>
+<div align="center" style="padding: 10px;"><img src="{{url_for('static', filename='profile.png')}}"  height="120" width="120" /> </div> 
+    <br/>
+
+	<h1  align="center">Hello {{user.username}}</h1>
+    <br/>
+    <p align="center"> Enter Binance public key: <input type="text" name="bspk" placeholder="API key
+        " size="25"></p>
+    <p align="center"> Enter Binance Secret key: <input type="text" name="bssk" placeholder="API key
+        " size="25"></p>
+    <p align="center"> <button  type="submit" name="save" value="edit">Submit</button></p>
+</form>
+</div>
+{%endif%}
+<br/>
+<br/>
+<br/>
+<footer bottom="0">
+
+    <table width="100%"  class="fixed-bottom" style=" position: static;
+                                 bottom: 0;
+   width: 100%;
+   background-color: rgb(39, 39, 39);
+   color: white;
+   height: 30px;
+   padding-bottom : 6px;"><tr>
+        <td align="center">Trade Widgets by <a href="a" color="white">Tradeview</a></td><td align="center"> Trade Platform <a href=#>Binance</a></td></tr></table>
+          </footer>
+{% endblock %}

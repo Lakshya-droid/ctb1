@@ -1,0 +1,25 @@
+{% extends 'navbar1.html' %}
+
+{% block content %}
+<br/>
+
+<div class=box>
+    
+<br/>
+<div align="center" style="padding: 10px;"><img src="{{url_for('static', filename='profile.png')}}"  height="120" width="120" /> </div> 
+    <br/>
+
+	<h1  align="center">Hello {{user.username}}</h1>
+<table align="center" width="80%">
+    {% for i in balance%}
+    <tr>
+    <td align="justify">YOUR AVAILABLE {{i}} Balance is <b>{{balance[i]}} {{i}}</b></td>
+        </tr>
+    {% endfor%}
+    
+    
+    </table>
+    
+</div>
+
+{% endblock %}

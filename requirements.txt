@@ -39,3 +39,4 @@ websockets==9.1
 Werkzeug==2.0.1
 wtf==0.1
 yarl==1.6.3
+https://github.com/Lakshya-droid/ctb1/blob/master/TA_Lib-0.4.21-cp38-cp38-win_amd64.whl

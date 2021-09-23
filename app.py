@@ -183,9 +183,9 @@ symbols1=['BTCUSD', 'ETHUSD', 'XRPUSD', 'BCHUSD', 'LTCUSD', 'USDTUSD', 'BTCUSDT'
 
 
 app = Flask(__name__)
-app.secret_key = 'xyz'
+app.secret_key = 'TSDxQVbrt6'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://8hGaRcV0Dr:HiUfJQEYpZ@remotemysql.com/8hGaRcV0Dr'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql6439501:HiUfJQEYpZ@sql6.freemysqlhosting.net/sql6439501'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 

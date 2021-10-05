@@ -184,9 +184,17 @@ symbols1=['BTCUSD', 'ETHUSD', 'XRPUSD', 'BCHUSD', 'LTCUSD', 'USDTUSD', 'BTCUSDT'
 
 app = Flask(__name__)
 app.secret_key = 'xyz'
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql6439501:TSDxQVbrt6@sql6.freemysqlhosting.net:3306/sql6439501'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app = Flask(__name__)
+app.secret_key = 'xyz'
+PASSWORD ="Anil%9129"
+PUBLIC_IP_ADDRESS ="35.192.59.225"
+DBNAME ="crypto_by"
+PROJECT_ID ="grand-appliance-328113"
+INSTANCE_NAME ="crypto-by"
+ 
+# configuration
+app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql + mysqldb://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= False
 
 
 db.init_app(app)

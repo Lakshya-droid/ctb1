@@ -193,9 +193,19 @@ PROJECT_ID ="grand-appliance-328113"
 INSTANCE_NAME ="crypto-by"
  
 # configuration
-app.config["SQLALCHEMY_DATABASE_URI"]= f"mysql://root:{PASSWORD}@{PUBLIC_IP_ADDRESS}/{DBNAME}?unix_socket =/cloudsql/{PROJECT_ID}:{INSTANCE_NAME}"
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
 
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
+CLOUDSQL_USER = 'root'
+CLOUDSQL_PASSWORD = 'Anil%9129'
+CLOUDSQL_DATABASE = 'crypto_by'
+CLOUDSQL_CONNECTION_NAME = 'grand-appliance-328113:us-central1:crypto-by'
+app.config["SQLALCHEMY_DATABASE_URI"] = (
+    'mysql+pymysql://{nam}:{pas}@35.192.59.225/{dbn}?unix_socket=/cloudsql/{con}').format (
+    nam=CLOUDSQL_USER,
+    pas=CLOUDSQL_PASSWORD,
+    dbn=CLOUDSQL_DATABASE,
+    con=CLOUDSQL_CONNECTION_NAME,
+)
 
 db.init_app(app)
 login.init_app(app)

@@ -7,6 +7,7 @@ from datetime import date
 from binance.client import Client
 import talib
 import math
+import pymysql
 import random
 import smtplib
 import datetime
@@ -181,16 +182,8 @@ symbols1=['BTCUSD', 'ETHUSD', 'XRPUSD', 'BCHUSD', 'LTCUSD', 'USDTUSD', 'BTCUSDT'
 
 # Create a Flask Instance
 
+app = Flask(__name__)
 
-app = Flask(__name__)
-app.secret_key = 'xyz'
-app = Flask(__name__)
-app.secret_key = 'xyz'
-PASSWORD ="Anil%9129"
-PUBLIC_IP_ADDRESS ="35.192.59.225"
-DBNAME ="crypto_by"
-PROJECT_ID ="grand-appliance-328113"
-INSTANCE_NAME ="crypto-by"
  
 # configuration
 

@@ -186,7 +186,7 @@ app = Flask(__name__)
 
  
 # configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://xuJifKgKUL:nycGNzSvx4@remotemysql.com:3306/xuJifKgKUL'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://crypto-by.chztkmfznggh.ap-south-1.rds.amazonaws.com:3306/anil9129'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
 
 

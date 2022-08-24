@@ -183,10 +183,9 @@ symbols1=['BTCUSD', 'ETHUSD', 'XRPUSD', 'BCHUSD', 'LTCUSD', 'USDTUSD', 'BTCUSDT'
 # Create a Flask Instance
 
 app = Flask(__name__)
-
- 
+app.secret_key = 'super secret key'
 # configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://crypto-by.chztkmfznggh.ap-south-1.rds.amazonaws.com:3306/anil9129'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql6511396:Lz6vYC42df@sql6.freesqldatabase.com:3306/sql6511396'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
 
 
@@ -1013,4 +1012,5 @@ def spottest():
             return render_template("spot-test.html" ,a=a,symbols=symbols,balance=dict1,spottest="active",sym=request.form.get("syms"),user=current_user)
     return render_template("spot-test.html" ,a=a,symbols=symbols,spottest="active",balance=dict1,sym="BTCUSDT",user=current_user)
 if __name__ == "__main__":
+    
     app.run()

@@ -185,7 +185,7 @@ symbols1=['BTCUSD', 'ETHUSD', 'XRPUSD', 'BCHUSD', 'LTCUSD', 'USDTUSD', 'BTCUSDT'
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 # configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://sql6511396:Lz6vYC42df@sql6.freesqldatabase.com:3306/sql6511396'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://admin:anil9129@crypto.cy2hwdln2agy.ap-south-1.rds.amazonaws.com:3306/crypto'
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"]= True
 
 

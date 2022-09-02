@@ -18,7 +18,7 @@ class UserModel(UserMixin, db.Model):
     binpk = db.Column(db.String(1000))
     binsk = db.Column(db.String(1000))
     otp=db.Column(db.String(8))
-    strategy=db.Column(db.String(10000))
+    strategy=db.Column(db.String(65533))
     start=db.Column(db.String(1000))
     verified=db.Column(db.String(100))
     wid_list=db.Column(db.String(1000))
